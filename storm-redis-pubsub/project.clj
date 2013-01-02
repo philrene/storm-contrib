@@ -1,9 +1,15 @@
-(defproject storm-redis-pubsub "0.0.1-SNAPSHOT"
-  :source-path "src/clj"
-  :java-source-path "src/jvm"
-  :javac-options {:debug "true" :fork "true"}
-  :jvm-opts ["-Djava.library.path=/usr/local/lib:/opt/local/lib"]
+(defproject storm-redis-pubsub "0.0.3-SNAPSHOT"
+  :source-paths ["src/clj"]
+  ;:jvm-opts ["-Djava.library.path=/usr/local/lib:/opt/local/lib"]
   :aot :all
-  :dependencies [[redis.clients/jedis "2.0.0"]]
-  :dev-dependencies [[storm "0.6.2"]])
+  :java-source-paths ["src/jvm"]
+  :profiles {:dev
+             {:dependencies
+              [[storm "0.8.1"] 
+               [org.clojure/clojure "1.4.0"]
+               [redis.clients/jedis "2.0.0"]
+               ]}}
+  :min-lein-version "2.0.0"
+  :javac-options {:debug "true"}
+ ) 
 
